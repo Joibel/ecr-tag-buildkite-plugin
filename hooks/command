@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -xeuo pipefail
+echo ecr-tag | buildkite-agent pipeline upload

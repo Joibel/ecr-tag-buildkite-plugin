@@ -1,0 +1,15 @@
+name: ECR Tag
+description: Tags ECR with the build we've just made
+author: https://github.com/Joibel
+requirements: []
+configuration:
+  properties:
+    arn_role:
+      type: string
+    repository:
+      type: string
+    existing_tag:
+      type: string
+    new_tag:
+      type: string
+  additionalProperties: false

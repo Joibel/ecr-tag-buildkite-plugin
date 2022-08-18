@@ -1,0 +1,13 @@
+  - key: tag
+    label: 🏷️ Tag
+    depends_on:
+      - build # Change back to deploy ###
+    plugins:
+      - Joibel/loomly-tag#a788b36
+      - cultureamp/aws-assume-role#v0.1.0:
+          role: "${BUILDKITE_PLUGIN_ECR_TAG_ARN_ROLE}"
+    command: |
+      export AWS_PAGER=""
+      export MANIFEST=$$(/usr/local/awscli2/v2/current/bin/aws ecr batch-get-image --repository-name ${BUILDKITE_PLUGIN_ECR_TAG_REPOSTORY_NAME} --image-ids imageTag=${BUILDKITE_PLUGIN_ECR_TAG_EXISTING_TAG} --query 'images[].imageManifest' --output text)
+      /usr/local/awscli2/v2/current/bin/aws ecr put-image --repository-name ${BUILDKITE_PLUGIN_ECR_TAG_REPOSTORY_NAME} --image-tag ${BUILDKITE_PLUGIN_ECR_TAG_NEW_TAG} --image-manifest "$${MANIFEST}"
+      /usr/local/awscli2/v2/current/bin/aws ecr describe-images --repository-name ${BUILDKITE_PLUGIN_ECR_TAG_REPOSTORY_NAME}
