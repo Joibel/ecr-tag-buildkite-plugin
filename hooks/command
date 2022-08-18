@@ -1,4 +1,5 @@
 #!/bin/bash
 
 set -xeuo pipefail
-echo ecr-tag | buildkite-agent pipeline upload
+set
+buildkite-agent pipeline upload < "$(dirname "${BASH_SOURCE}")/../ecr-tag"
