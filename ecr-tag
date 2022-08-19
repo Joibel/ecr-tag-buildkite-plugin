@@ -1,7 +1,6 @@
   - key: ${BUILDKITE_PLUGIN_ECR_TAG_KEY:-tag}
     label: 🏷️ ${BUILDKITE_PLUGIN_ECR_TAG_LABEL:-Tag}
-    depends_on:
-      - deploy
+${DEPENDS_ON}
     plugins:
       - Joibel/loomly-tag#a788b36
       - cultureamp/aws-assume-role#v0.1.0:
