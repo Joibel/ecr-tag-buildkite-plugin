@@ -24,6 +24,5 @@ if [[ -n "${DEPENDS_ON_LIST}" ]] ; then
      DEPENDS_ON="$DEPENDS_ON     - $line\n"
    done
 fi
-
-set
-buildkite-agent pipeline upload < "$(dirname "${BASH_SOURCE}")/../ecr-tag"
+export DEPENDS_ON
+envsubst '${DEPENDS_ON}' <"$(dirname "${BASH_SOURCE}")/../ecr-tag" | sed -e 's/\\n/\n/g' | buildkite-agent pipeline upload
