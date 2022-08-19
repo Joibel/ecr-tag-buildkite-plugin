@@ -4,6 +4,8 @@ author: https://github.com/Joibel
 requirements: []
 configuration:
   properties:
+    key:
+      type: string
     arn_role:
       type: string
     repository:
@@ -12,4 +14,6 @@ configuration:
       type: string
     new_tag:
       type: string
+    depends_on:
+      type: array
   additionalProperties: false

@@ -1,4 +1,4 @@
-  - key: tag
+  - key: ${BUILDKITE_PLUGIN_ECR_TAG_KEY:-tag}
     label: 🏷️ Tag
     depends_on:
       - deploy
