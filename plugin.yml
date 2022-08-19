@@ -6,7 +6,7 @@ configuration:
   properties:
     key:
       type: string
-    name:
+    label:
       type: string
     arn_role:
       type: string

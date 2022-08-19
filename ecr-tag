@@ -1,5 +1,5 @@
   - key: ${BUILDKITE_PLUGIN_ECR_TAG_KEY:-tag}
-    label: 🏷️ ${BUILDKITE_PLUGIN_ECR_TAG_NAME:-Tag}
+    label: 🏷️ ${BUILDKITE_PLUGIN_ECR_TAG_LABEL:-Tag}
     depends_on:
       - deploy
     plugins:
