@@ -8,5 +8,6 @@ Tags an existing ECR image with a new tag.
 `repository`: ECR reposiory name
 `existing_tag`: The existing image tag
 `new_tag`: The new image tag which this plugin will create
+`depends_on`: An array of tasks to depend_on in a buildkite sense
 
 This plugin injects a new step into your pipeline immediately after it has executed to perform this operation
